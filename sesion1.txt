@@ -1,0 +1,86 @@
+Sesion 1 Introduccion a React JS
+
+-SPA
+
+Una SPA es una una forma de desarrollo web. Se desarrollan paginas web con un solo archivo de tipo HTML.
+Se mejoran tiempos de carga y respuesta, lo que se traduce en mejor experiencia de usuario.
+
+Mientras navegamos se iran solicitando los contenidos al servidor. Cada vez que elegimos una ruta se cargan unos elementos u otros.
+
+-ReactJS
+
+Es una libreria de JavaScript para crear interfaces de usuario.
+
+Son una serie de estructuras predefinidas. Y son limitadas, en Angular las posibilidades se amplian.
+
+NO ES UN FRAMEWORK.
+
+Es de Facebook (Ahora META), que se encarga de su mantenimiento. Sin embargo, al ser de codigo abierto existen muchas comunidades e individuos que colaboran con informacion y ayuda para mejorar REACT.
+
+Caracteristicas:
+
+~Velocidad (Gracias a los archivos JSX)
+	Velocidad de renderizado. Se consigue trabajando con un DOM Virtual, este se encarga de aplicar los cambios.
+~Componentes (Se divide en bloques que luego pueden articularse y reutilizarse. La esencia de REACT)
+	Son como cajas donde se pueden meter cosas y luego se puede reutilizar. Estos estan en HTML y devuelven un solo elemento HTML cada uno. Pueden ser mas o menos complejos. Muy reutilizables, y deben entenderse de forma separada.
+	Esto ayuda a que la pagina sea mas mantenible o intercambiable por otros componentes. Es una modularizacion. Hay distintos tipos de componentes.
+~Desarrollo Declarativo
+	Este paradigma se centra en que cada componente debe tener su estado propio.
+	En JS trabajamos con un paradigma imperativo.
+	En React, solo se refresca el componente que ha sufrido un cambio.
+~Anidacion de Componentes (Jerarquia de componentes por donde la informacion puede fluir la informacion. Tipo Mashtriuska)
+	Los componentes de orden superior propagan datos a los de orden inferior. La comunicacion es unidireccional, y se usan los eventos para que los componentes inferiores sean reconocidos por los de orden superior.
+	Si bien la informacion va de arriba hacia abajo, las funciones, al contrario, van desde abajo hacia arriba.
+	La estructura, entonces, debe ser controlado para evitar confusiones y que la app se descontrole.
+	DATOS DE ARRIBA HACIA ABAJO (Mediante Props)
+	EVENTOS DE ABAJO HACIA ARRIBA (Un click por ejemplo, este se lanza en un componente de orden superior)
+
+~Isomorfismo
+	Tambien llamado JS universal, capacidad de renderizar tanto en cliente como en servidor. 
+	Esto ayuda a la resolucion de problemas y mejora el posicionamiento y SEO. 
+~Agilidad de desarrollo (Se puede desarrollar mas rapido)
+	Disponemos de todas las funcionalidades de JQUERY. NO ES NECESARIO.
+
+-Instalacion de REACT JS
+
+Se hace con NodeJS. Como la mayoria de aplicacion JS.
+
+Lo usaremos mucho para el uso de HTTP, por ejemplo.
+
+Y para instalar Paquetes con NPM.
+
+
+- ¿Como crear un proyecto?
+
+Instalamos Create-react-app con NPM en la terminal powershell o CMD.SIEMPRE EN GLOBAL.
+Luego, iniciamos un proyecto con create-react-app nombreProyecto (Esto en CMD o powershell)
+
+Esto nos crea una carpeta, scripts (npm-start nos abre en localHost para ver el proyecto y npm run build para desplegar en Netlify por ejemplo)
+
+Luego que termina la instalacion, debemos entrar en la carpeta creada.
+
+En public ira el HTML, y en SRC estaran los componentes.
+
+Para empezar, debemos hacer npm start en el directorio principal para iniciar el localhost.
+Los scripts en npm nos pueden servir para automatizar tareas tambien.
+
+Esto tambien se puede ver en otros dispositivos con la opcion On Your Networ que aparece automaticamente.
+
+-JSX
+
+Es un mezcla de HTML y JS.
+Los componentes son inyectados y exportados.
+
+-Carpetas que se crean
+
+ ~NodeModules: Se instalan todos los modulos necesarios. No se suele tocar.
+ ~public: Encontramos el archivo HTML principal del SPA. En la linea 31 estara el renderizado del App.js 
+ ~package.json: IMPORTANTE aqui tendremos el nombre del proyecto, la version, las dependencias de produccion (React DOM, scripts y testing), scripts que automatizan tareas (Como ejecutar el localHost, el build), tenemos el EsLint que contiene la informacion con las reglas de escritura, y browserList que contiene la informacion de cual navegador se puede usar (Esto lo podemos cambiar, aunque en navegadores viejos react no funciona bien)
+ ~package-lock.json: Aqui tenemos la informacion estatica de los paquetes instalados. SI BORRAMOS UN PACKAGE DEL NODEMODULES TAMBIEN DEBEMOS HACERLO AQUI.
+ ~gitignore: Ficheros que no se suben como el nodemodules.
+ ~index.js: Aqui tendremos la informacion de renderizado por ejemplo con el ReactDom.render que renderizara todo lo de los parentesis. Dentro tenemos el app que lo renderiza en el elemento con el id ROOT, que es de lo que hablamos antes.
+ ~App.js: Es el corazon, la esencia. Tiene una funcion que devuelve un div que abre y que cierra (EL RETURN LO DEVUELVE, PERO SOLO ES CAPAZ DE DEVOLVER UN UNICO ELEMENTO, EN ESTE CASO NO PODRIA DEVOLVER OTRO DIV A LA MISMA ALTURA)
+
+-Primer acercamiento
+
+En el P ponemos HOLA MUNDO (en App.js), borramos antes. Luego compila y envia a localHost.
