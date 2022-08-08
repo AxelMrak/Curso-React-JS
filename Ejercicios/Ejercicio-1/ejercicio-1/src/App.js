@@ -1,14 +1,14 @@
-import gif from './yeah.gif';
 import './App.css';
-
+import Greeting from './components/pure/greeting';
+import GreetingF from './components/pure/GreetingF';
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={gif} className="App-logo" alt="logo" />
-        <p>
-            Hola Mundo. ¿Estan ahí?
-        </p>
+        {/* Componente propio. Lo que hacemos aca es crear una instancia de la clase creada en greeting.jsx */}
+        <Greeting name="Axel"></Greeting>
+        {/* Pasamos la prop name */}
+        <GreetingF name="Ezequiel"></GreetingF>
         <a
           className="App-link"
           href="https://reactjs.org"

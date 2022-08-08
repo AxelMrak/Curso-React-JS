@@ -1,0 +1,58 @@
+Clase 2: Componentes y Jerarquia 
+
+ACLARACION: Hay varias jerarquias. Podemos usar varias formas, pero aprenderemos una.
+
+-COMPONENTES
+
+Es un elemento reutilizable. Podemos hacer un componente que sea totalmente estatico (sin datos) u otros que sean reactivos (De ahi el nombre react), esto es que reaccionen a eventos, que se puedan cambiar, etc.
+Los componentes son autocontenidos, aunque pueden tener relaciones con otros componentes.
+
+El tutor crea una carpeta componentes y otra que se llama Pure (Que contendra componentes puros sin mucha complejidad, que sean sencillos).
+Dentro de componentes/pure crea un elemento llamado greeting.jsx. JSX se puede usar en vscode con extensiones.
+Dentro del JSX crea un componente que luego se puede renderizar en App.js. Este componente es de tipo clase (No funcional)
+
+La estructura del JSX es la posibilidad de utilizar HTML con JS, y asi utilizar logica de la programacion en la manipulacion de estos elementos.
+El render contiene el HTML a renderizar.
+
+Podemos observar en el archivo JSX que importa un componente de React (A partir de la version 17 no es necesario, pero si es util ponerlo)
+Component esta importado, component es una clase que se esta extendiendo.
+Esta contiene una funcion render que retorna un elemento HTML(SOLO UNO, NO PODRIA DEVOLVER DOS DIVS. SOLO PUEDE SER UNO DONDE PONEMOS CONTENIDO, SOLO UN ELEMENTO PADRE).
+
+Tenemos tambien los PropTypes, es el contenido que le puedo pasar yo a un componente desde un componente de mayor jerarquia.
+
+Luego de añadir contenido en el archivo JSX, debemos pintarlo o añadirlo a la pagina, para ello veremos que el componente ya esta exportado por defaul. Entonces..
+
+Vamos al archivo app.js, y podemos sustituir el P por el componente. Con la siguiente sintaxis, <greeting>
+
+Antes debemos importarlo con el nombre de clase y de exportacion, junto con la ruta relativa.
+
+Luego de añadirlo y verlo en la pagina, veremos en las dev tools y en el apartado components, que el componente Greeting esta dentro de app.
+
+~Componentes TIPO CLASE: Estos se diferencian de los tipos funcion por tener constructores, propiedades de clase, metodos propios.
+
+Los componentes, entonces, tendran su propio constructor y alli podremos pasarle informacion. Imaginemos que queremos poner Hello y luego el nombre, el padre podria pasarle el nombre.
+
+	-PROPTYPES: Sirven para especificar el tipo de dato que estamos pasando a la clase. Con esto aclaramos por ejemplo que name sea si o si un string, o edad sea si o si un number
+Con JS en react esto se hace necesario ya que al ser de tipado debil esto no es costumbre o no se nos requiere. Pero es importante ya que es necesario que cuando el  user interactue sepa que debe poner un string o cierto tipo de dato para que la pagina pinte correctamente.
+
+Podemos definir que sea un string, un number, boolean, un elemento HTML o un TIPO de elemento Html, etc.
+
+	-STATE: El estado de un elemento es PRIVADO e INMUTABLE. Esto significa que no puedo cambiarlo sin utilizar una funcion en concreto.
+Debemos controlarlo. Se cambia a traves de una regeneracion del estado, que se vuelva a generar con un dato diferente.
+
+Por tanto, no podria hacer esto: age = 25 siendo el estado un dato diferente. Ademas la regeneracion permite la renderizacion.
+
+Para cambiar el estado usaremos una funcion llamada SETSTATE. 
+
+
+HASTA ACA LLEGA TIPO CLASE CON ALGUNOS CONCEPTOS
+
+~Componentes TIPO FUNCION: Estos contienen todo lo de la programacion funcional, donde si tiene que retornar algo por ejemplo.
+
+Los componentes tipo funcion pueden devolver siempre un elemeto HTML, ademas tenemos funciones HOOKS. Esto es lo poderoso de React y por lo que los componentes tipo funcion son mas utilizados.
+
+Los componentes tipo funcion son mas faciles ya que prescinden de los constructores y de las clases. Por tanto es mas facil, por ejemplo, colocar estados a traves del hook useState.
+
+
+App.js: Es un componente que renderiza los objetos en el navegador.
+
