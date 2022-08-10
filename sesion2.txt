@@ -18,9 +18,9 @@ Podemos observar en el archivo JSX que importa un componente de React (A partir 
 Component esta importado, component es una clase que se esta extendiendo.
 Esta contiene una funcion render que retorna un elemento HTML(SOLO UNO, NO PODRIA DEVOLVER DOS DIVS. SOLO PUEDE SER UNO DONDE PONEMOS CONTENIDO, SOLO UN ELEMENTO PADRE).
 
-Tenemos tambien los PropTypes, es el contenido que le puedo pasar yo a un componente desde un componente de mayor jerarquia.
+Tenemos tambien los PropTypes, es el contenido que le puedo pasar yo a un componente desde un componente de mayor jerarquia. Si es String, Number, etc.
 
-Luego de añadir contenido en el archivo JSX, debemos pintarlo o añadirlo a la pagina, para ello veremos que el componente ya esta exportado por defaul. Entonces..
+Luego de añadir contenido en el archivo JSX, debemos pintarlo o añadirlo a la pagina, para ello veremos que el componente ya esta exportado por default. Entonces..
 
 Vamos al archivo app.js, y podemos sustituir el P por el componente. Con la siguiente sintaxis, <greeting>
 
@@ -49,7 +49,7 @@ HASTA ACA LLEGA TIPO CLASE CON ALGUNOS CONCEPTOS
 
 ~Componentes TIPO FUNCION: Estos contienen todo lo de la programacion funcional, donde si tiene que retornar algo por ejemplo.
 
-Los componentes tipo funcion pueden devolver siempre un elemeto HTML, ademas tenemos funciones HOOKS. Esto es lo poderoso de React y por lo que los componentes tipo funcion son mas utilizados.
+Los componentes tipo funcion pueden devolver siempre un elemento HTML, ademas tenemos funciones HOOKS. Esto es lo poderoso de React y por lo que los componentes tipo funcion son mas utilizados.
 
 Los componentes tipo funcion son mas faciles ya que prescinden de los constructores y de las clases. Por tanto es mas facil, por ejemplo, colocar estados a traves del hook useState.
 

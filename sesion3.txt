@@ -1,0 +1,36 @@
+SESION 3 - PRESENTACION PROYECTO EVOLUTIVO
+
+-Maquetacion de carpetas y archivos
+
+Dentro de componentes creamos otra carpeta con el nombre container. Dentro de el pondremos los componentes de orden superior, estos renderizan a los de orden inferior. 
+
+Los componentes de tipo container tienen la logica y los datos. Un componente tendra la lista de tareas, y otro lo renderizará.
+
+Crearemos otra carpeta dentro de SRC llamada HOOKS. Este contendra los hooks.
+
+Y otra llamada Routes, dentro estableceremos que ruta ira con que componente. Por ejemplo, el componente Home Page, nos dirigirá a la ruta homePage.html.
+
+Otra llamada Pages, donde haremos componentes tipo pagina que contengan componentes de nivel inferior. 
+
+Otra forms, que contenga los formularios. Este irá en pure, por ahora.
+
+Otra en pages, que será Home. Donde ira la home page. Y auth donde ira la pagina de registro, contraseña, etc. Y un 404 donde pondremos una pagina que se lanzara en caso de un error en la ruta.
+
+Otra en SRC llamada models, donde iran la especificacion de los datos y los datos con los que vamos a trabajar.
+
+En models vamos a ir haciendo la clase tarea. De donde se desprenderan las otras. Para una mayor comprension se coloca task.class.js
+
+Creamos un component en container llamado task_list.jsx y luego en pure uno llamado task. La idea es que app.js (Rango mas alto) renderize a tasklist (Rango medio) y tasklist renderiza a task (Rango bajo) .
+
+Estos se comunican dependiendo la jerarquia, por ejemplo, supongamos que queremos borrar una tarea o task, entonces esta avisa a su rango mas alto y este se regenera y vuelve a pintar obviamente avisando a App.js la lista sin el task que envio la informacion (Puede ser un id) diciendo que se eliminará.
+
+Para empezar, podemos decir que hay dos formas de empezar a trabajar con los componentes. Una es de los de mas alto rango, y otra es empezando desde los de bajo rango y ir escalando. En este caso usamos el segundo, que se denomina modular.
+
+-ARCHIVOS QUE CREAMOS
+
+	--Levels: Es una constante que contiene los tipos de tarea.
+	--Task Class: Clase tipo tarea que contiene los datos y tipos de datos y un constructor.
+	--Task: Es de orden inferior a task class, este contiene una prop que a su vez va pasando las propiedades para que se vayan pintando en el div y los h que indicamos. Y tambien tiene el proptypes que indica que es una instancia de task class.
+	--TaskList: Renderizara la lista. Por ahora esta de prueba con una tarea default.
+
+TRES NIVELES: Una tarea (TaskComponent) dentro de una lista de tareas (TaskListComponent) dentro de App.js que renderiza.
