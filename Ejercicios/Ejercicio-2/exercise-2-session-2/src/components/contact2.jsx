@@ -13,7 +13,7 @@ function Contact2(state) {
        <h3>
        {conected === false ? `Offline` : `Online`}
        </h3>
-       <button onClick={()=> setConected(!conected)}>{conected === false ? `Online` : `Offline`}</button>
+       <button onClick={() => setConected( !conected )}>{ conected === false ? `Online` : `Offline` }</button>
     </div>
   )
 }
