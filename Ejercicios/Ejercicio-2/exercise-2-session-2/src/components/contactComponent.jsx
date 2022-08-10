@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Contact } from './contact.class';
+import Contact2 from './contact2';
 
 function ContactComponent({ Contact }) {
   return (
@@ -15,7 +16,7 @@ function ContactComponent({ Contact }) {
         { Contact.email }
     </h3>
     <h4>
-        { Contact.online ? `Contact is online` : `Contact is offline` }
+    <Contact2 status={true}></Contact2>
     </h4>
     </div>
   )
@@ -23,10 +24,12 @@ function ContactComponent({ Contact }) {
 
 ContactComponent.propTypes = {
   ContactComponent: PropTypes.instanceOf( Contact ),
-  name: PropTypes.string,
-  surname: PropTypes.string,
-  email: PropTypes.string,
-  online: PropTypes.bool
 }
 
 export default ContactComponent
+
+/**
+ * !Error mio: Aca no se coloca el if. Sino el estado que tendra el contact 2 que se hara mas adelante.
+ * !Otro error: Aca se declara solo la proptype que se usa en este componente. En este caso se dice que este es una instancia de la clase creada anteriormente.
+ * 
+ */

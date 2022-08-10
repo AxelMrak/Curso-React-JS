@@ -11,3 +11,11 @@ export class Contact {
         this.online = online;
     }
 }
+
+/** 
+ * * Segun correcion esto esta correcto. 
+ * 
+ * 
+ * 
+ * 
+*/
