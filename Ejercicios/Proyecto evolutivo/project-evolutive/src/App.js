@@ -1,7 +1,6 @@
 import './App.css';
-import TaskListComponent from './components/container/task_list';
-import Greeting from './components/pure/greeting';
-import GreetingF from './components/pure/GreetingF';
+import TaskListComponent from '../src/components/container/task_list';
+import GreetingStyled from './components/pure/greetingStyled';
 
 function App() {
   return (
@@ -9,7 +8,7 @@ function App() {
       <header className="App-header">
       {/* Componente de listado de tareas */}
         <TaskListComponent></TaskListComponent>
-        
+        <GreetingStyled name='Martin'></GreetingStyled>
       </header>
     </div>
   );
