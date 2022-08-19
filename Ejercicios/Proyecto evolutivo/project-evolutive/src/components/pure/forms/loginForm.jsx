@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 
 export default function loginForm() {
 
-    //Inicializamos las credenciales
+    // Inicializamos credenciales que contiene un array de objetos que contiene un user y su password vacios
     const initialCredentials = [ 
         {
             user: ``,
@@ -12,7 +12,8 @@ export default function loginForm() {
         }
     ];
 
-    const [credential, setCredentials] = useState(initialCredentials);
+    // Establece estado con las credenciales iniciales
+    const [credential, setCredential] = useState(initialCredentials);
 
     return (
         <div>

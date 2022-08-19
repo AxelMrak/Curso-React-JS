@@ -12,6 +12,7 @@ function registerForm() {
         }
     ];
 
+    // Establece estado con la data
     const [data, setData] = useState(initialData);
 
 
