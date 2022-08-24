@@ -10,7 +10,7 @@ import { LEVELS } from '../../models/levels.enum';
  * @param {Se le pasa una task como argumento. Esta task será su hija. Proviene de un componente tipo clase} param0 
  * @returns Devuelve el renderizado
  */
-function TaskComponent({ task }) { //Le pasamos TaskComponent en vez de props.
+function TaskComponent({ task, complete, remove }) { //Le pasamos TaskComponent en vez de props.
 
     /**
      * * Manejo del estado del componente
@@ -60,9 +60,9 @@ function TaskComponent({ task }) { //Le pasamos TaskComponent en vez de props.
 
     const taskIconCompleted = () => {
         if (task.completed) {
-            return (<i className='bi-toggle-on' style={{ color: 'green', fontWeight: 'bold', fontSize: 'larger' }}></i>)
+            return (<i onClick={ () => complete(task) } className='bi-toggle-on task-action' style={{ color: 'green', fontWeight: 'bold', fontSize: 'larger' }}></i>)
         } else {
-            return (<i className='bi-toggle-off' style={{ color: 'red', fontWeight: 'bold', fontSize: 'larger' }}></i>)
+            return (<i onClick={ () => complete(task) } className='bi-toggle-off task-action' style={{ color: 'red', fontWeight: 'bold', fontSize: 'larger' }}></i>)
         }
     }
 
@@ -82,7 +82,7 @@ function TaskComponent({ task }) { //Le pasamos TaskComponent en vez de props.
             <td className='align-middle'>
                 {/* Ejecucion de la funcion que cambia iconos */}
                 { taskIconCompleted() }
-                <i className='bi-trash' style={{ color: 'tomato', fontSize: 'large' }}></i>
+                <i onClick={() => remove(task)} className='bi-trash task-action' style={{ color: 'tomato', fontSize: 'large' }}></i>
             </td>
         </tr>
     )
@@ -92,7 +92,9 @@ function TaskComponent({ task }) { //Le pasamos TaskComponent en vez de props.
  * ? Establecemos los tipos de datos.
  */
 TaskComponent.propTypes = {
-    TaskComponent: PropTypes.instanceOf(Task) //Es una instancia de la clase Task. Esto esta pasando el dato, se pueden pasar hasta funciones. Datos primitivos y complejos, y hasta funciones.
+    TaskComponent: PropTypes.instanceOf(Task).isRequired, //Es una instancia de la clase Task. Esto esta pasando el dato, se pueden pasar hasta funciones. Datos primitivos y complejos, y hasta funciones.
+    complete: PropTypes.func.isRequired,
+    remove: PropTypes.func.isRequired
 };
 
 export default TaskComponent;

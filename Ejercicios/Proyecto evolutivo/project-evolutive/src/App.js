@@ -12,7 +12,8 @@ function App() {
         {/* Estilo aplicado a usuarios logeados o no */}
         {/* <GreetingStyled name='Martin'></GreetingStyled> */}
         {/* GESTION DE EVENTOS */}
-        <Father></Father>
+        {/* <Father></Father> */}
+        <TaskListComponent></TaskListComponent>
     </div>
   );
 }
