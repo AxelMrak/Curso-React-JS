@@ -21,7 +21,7 @@ const TaskListComponent = () => {
   /**
    * ? Estados establecidos para las tareas y para la carga
    */
-   const [tasks, setTasks] = useState([defaultTask1, defaultTask2, defaultTask3]);
+  const [tasks, setTasks] = useState([defaultTask1, defaultTask2, defaultTask3]);
   // const [loading, setLoading] = useState(true);
 
   /**
@@ -40,10 +40,28 @@ const TaskListComponent = () => {
   /**
    * ? Constante que cambia el estado de una tarea a completada. 
    */
-  // const changeCompleted = id => {
-  //   console.log(`TODO: Cambiara el estado de una tarea. Para la proxima clase`)
-  // };
 
+  const completeTask = task => {
+    const index = tasks.indexOf(task);
+    const temporalTask = [...tasks];
+    temporalTask[index].completed = !temporalTask[index].completed;
+    //Vamos a actualizar el estado del componente con la nueva lista de tareas y esto actualizara la iteracion de las tareas, el.map
+    setTasks(temporalTask);
+  };
+
+  const removeTask = task => {
+    const index = tasks.indexOf(task);
+    const temporalTask = [...tasks];
+    temporalTask.splice(index, 1);
+    setTasks(temporalTask);
+  };
+
+  const addTask = task => {
+    const index = tasks.indexOf(task);
+    const temporalTask = [...tasks];
+    temporalTask.push(task);
+    setTasks(temporalTask);
+  };
 
   return (
     <div>
@@ -67,22 +85,24 @@ const TaskListComponent = () => {
               <tbody>
                 {/* Hacemos un mapeo de las tareas. Pasandole como argumento una tarea y su indice.
                 Luego en el return devolverá el componente con su KEY que permite que el DOM identifique que objeto es el que debe pintar y la task correspondiente a ese key identificador. Iteramos cada una de las tareas y luego le asignamos una key y las pintamos*/}
-                { tasks.map((task, index) => {
-                        return (
-                                <TaskComponent 
-                                    key={index} 
-                                    task={task}
-                                >
-                                </TaskComponent>
-                            )
-                        }
-                    )}
+                {tasks.map((task, index) => {
+                  return (
+                    <TaskComponent
+                      key={index}
+                      task={task}
+                      complete={completeTask}
+                      remove={removeTask}
+                    >
+                    </TaskComponent>
+                  )
+                }
+                )}
               </tbody>
             </table>
           </div>
-          <TaskForm></TaskForm>
         </div>
       </div>
+      <TaskForm add={addTask}></TaskForm>
     </div>
   );
 };
