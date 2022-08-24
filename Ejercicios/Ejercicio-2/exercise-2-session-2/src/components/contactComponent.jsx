@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Contact } from './contact.class';
+import  Contact  from '../models/contact.class';
 import Contact2 from './contact2';
 
 function ContactComponent({ Contact }) {

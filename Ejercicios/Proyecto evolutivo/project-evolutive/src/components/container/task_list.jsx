@@ -19,7 +19,8 @@ const TaskListComponent = () => {
   const defaultTask3 = new Task(`Example3`, `Description 3`, false, LEVELS.BLOCKING);
 
   /**
-   * ? Estados establecidos para las tareas y para la carga
+   * * Estados establecidos para las tareas y para la carga
+   * ? El estado inicial de tasks es un array de tasks (Las que estan arriba)
    */
   const [tasks, setTasks] = useState([defaultTask1, defaultTask2, defaultTask3]);
   // const [loading, setLoading] = useState(true);
@@ -38,7 +39,12 @@ const TaskListComponent = () => {
 
 
   /**
-   * ? Constante que cambia el estado de una tarea a completada. 
+   * * Funcion que cambia el estado de una tarea a completada. 
+   * ? Recibe task como párametro.
+   * ? Toma el indice de cada posicion en tasks y lo guarda en la const index.
+   * ? Dentro de la constante temporalTask se guardan todas las tasks (Con factor de propagacion o sintaxis spread)
+   * ? Luego para la tarea en la que se este posicionada se cambia el valor de completed al contrario del valor.
+   * ? Luego se vuelve a regenerar el estado del componente con la nueva lista de tareas y esto actualiza el .map de las tasks
    */
 
   const completeTask = task => {
@@ -49,6 +55,14 @@ const TaskListComponent = () => {
     setTasks(temporalTask);
   };
 
+  /**
+   * * Funcion que remueve la tarea de la lista
+   * @param {Se le pasa una tarea} task 
+   * ? Hace lo mismo que la anterior pero en linea 67...
+   * ? Se hace un splice (quitar elemento) desde la posicion donde estamos parados hasta 1 elemento. Por tanto se borra un elemento.
+   * ? Se actualiza la lista
+   */
+
   const removeTask = task => {
     const index = tasks.indexOf(task);
     const temporalTask = [...tasks];
@@ -56,8 +70,16 @@ const TaskListComponent = () => {
     setTasks(temporalTask);
   };
 
+  /**
+   * * Funcion para añadir tarea
+   * @param {Se le pasa una tarea} task 
+   * ? No se toma el indice ya que no es necesario saber las posiciones actuales.
+   * ? Si se hace la sintaxis spread para tomar la lista.
+   * ? Luego con el push se inserta dentro de la lista la tarea pasada por parametro.
+   * ? Se actualiza.
+   */
+
   const addTask = task => {
-    const index = tasks.indexOf(task);
     const temporalTask = [...tasks];
     temporalTask.push(task);
     setTasks(temporalTask);

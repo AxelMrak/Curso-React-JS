@@ -10,7 +10,7 @@ import { LEVELS } from '../../models/levels.enum';
  * @param {Se le pasa una task como argumento. Esta task será su hija. Proviene de un componente tipo clase} param0 
  * @returns Devuelve el renderizado
  */
-function TaskComponent({ task, complete, remove }) { //Le pasamos TaskComponent en vez de props.
+function TaskComponent({ task, complete, remove }) { //Le pasamos metodos de props.
 
     /**
      * * Manejo del estado del componente

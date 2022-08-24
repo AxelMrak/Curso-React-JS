@@ -12,7 +12,7 @@ const TaskForm = ({ add }) => {
   const addTask = e => {
     e.preventDefault();
     const newTask = new Task(
-      nameRef.current.valueOf,
+      nameRef.current.value,
       descriptionRef.current.value,
       false,
       levelRef.current.value
