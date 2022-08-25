@@ -1,0 +1,15 @@
+.Contact-unit {
+    max-width: 300px;
+    background-color: cornflowerblue;
+    color: white;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 2rem;
+}
+
+button {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid white;
+    margin: 0.5rem;
+}

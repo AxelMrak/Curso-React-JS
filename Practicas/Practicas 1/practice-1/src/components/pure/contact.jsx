@@ -3,9 +3,10 @@
  * * Segundo que haremos. Este es PADRE DE LA CLASE Contact.
  * * Contendrá las instrucciones de como se renderizan los datos que definimos en la clase. Recibe informacion.
  */
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Contact } from '../../models/contactClass';
+import '../styles/contact-styles.css'
 
 /**
  * 
@@ -13,22 +14,16 @@ import { Contact } from '../../models/contactClass';
  * @returns renderizado
  */
 
-const ContactComponent = ({ contact, remove }) => {
-
-    const [status, setStatus] = useState(contact.online);
-
-    const changeStatus = () => {
-        setStatus(!status)
-    }
+const ContactComponent = ({ contact, remove, changeStatus }) => {
 
   return (
-    <div>
-        <h1>Name: {contact.name}</h1>
+    <div className='Contact-unit'>
+        <h1>{contact.name}</h1>
         <h2>{contact.age}</h2>
         <h3>{contact.country}</h3>
-        <p>{status ? 'Online' : 'Offline'}</p>
-        <button onClick={changeStatus}>Change</button>
-        <button onClick={() => remove(contact)}>X</button>
+        <h4>{contact.online ? (<h4>Online</h4>) : (<h4>Offline</h4>)}</h4>
+        <button onClick={() => remove(contact)}>Remove</button>
+        <button onClick={() => {changeStatus(contact)}}>{contact.online ? 'Online' : 'Offline'}</button>
     </div>
   )
 }

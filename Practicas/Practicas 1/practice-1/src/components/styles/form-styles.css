@@ -1,0 +1,14 @@
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+input {
+    padding: 0.5rem;
+    font-size: medium;
+    margin: 1rem;
+    border: 1px slateblue solid;
+}

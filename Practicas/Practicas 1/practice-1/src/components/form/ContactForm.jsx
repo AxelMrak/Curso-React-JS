@@ -5,6 +5,7 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Contact } from '../../models/contactClass';
+import '../styles/form-styles.css'
 
 const ContactForm = ({ add }) => {
 
