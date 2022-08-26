@@ -23,7 +23,7 @@ const ContactComponent = ({ contact, remove, changeStatus }) => {
         <h3>{contact.country}</h3>
         <h4>{contact.online ? (<h4>Online</h4>) : (<h4>Offline</h4>)}</h4>
         <button onClick={() => remove(contact)}>Remove</button>
-        <button onClick={() => {changeStatus(contact)}}>{contact.online ? 'Online' : 'Offline'}</button>
+        <button onClick={() => {changeStatus(contact)}}>{contact.online ? 'Offline' : 'Online'}</button>
     </div>
   )
 }
