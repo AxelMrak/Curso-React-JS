@@ -3,6 +3,7 @@ import { productDataContext } from '../../context/productContext';
 import Product from '../pure/product';
 import '../../styles/productsListStyle.css'
 
+
 const ProductsList = () => {
 
     const { data, setData } = useContext( productDataContext );

@@ -2,12 +2,12 @@ import React, { createContext, useState } from 'react';
 
 export const productDataContext = React.createContext();
 
-const productData = {
+const productData = [{
     name: 'Sugar',
     amount: 0,
     price: 0,
     IVA: 21,
-};
+}];
 
 
 export const ProductContext = ({ children }) => {
