@@ -19,7 +19,7 @@ const unloggedStyle = {
 /**
  * 
  * @param {Props} props 
- * @returns Devuelve renderizado condicional
+ * @returns Devuelve renderizado condicional con estilos
  */
 
 const GreetingStyled = props => {

@@ -1,17 +1,12 @@
-
 import './App.css';
-import ProductsList from './components/container/ProductsList';
-import Product from './components/pure/product';
-import { ProductContext } from './context/productContext';
+import { HeaderContainer } from './components/container/HeaderContainer';
+import Header from './components/pure/header';
+
 
 function App() {
   return (
     <div className="App">
-      <ProductContext>
-        <ProductsList>
-          <Product></Product>
-        </ProductsList>
-      </ProductContext>
+      <HeaderContainer></HeaderContainer>
     </div>
   );
 }

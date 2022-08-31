@@ -105,7 +105,7 @@ const TaskListComponent = () => {
                 </tr>
               </thead>
               <tbody>
-                {/* Hacemos un mapeo de las tareas. Pasandole como argumento una tarea y su indice.
+                {/* Hacemos un mapeo de las tareas (Esto es renderizado condicional, ya que DEPENDE de la cantidad de tareas). Pasandole como argumento una tarea y su indice.
                 Luego en el return devolverá el componente con su KEY que permite que el DOM identifique que objeto es el que debe pintar y la task correspondiente a ese key identificador. Iteramos cada una de las tareas y luego le asignamos una key y las pintamos*/}
                 {tasks.map((task, index) => {
                   return (

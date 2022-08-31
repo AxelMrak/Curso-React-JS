@@ -12,6 +12,4 @@ export class User {
         this.password = password;
         this.role = role;
     }
-
-
 }
