@@ -1,4 +1,3 @@
-
 /**
  * * Segundo que haremos. Este es PADRE DE LA CLASE Contact.
  * * Contendrá las instrucciones de como se renderizan los datos que definimos en la clase. Recibe informacion.
