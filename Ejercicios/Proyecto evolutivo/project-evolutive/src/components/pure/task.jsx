@@ -66,9 +66,18 @@ function TaskComponent({ task, complete, remove }) { //Le pasamos metodos de pro
         }
     }
 
+    const taskCompletedStyle = {
+        color: '#3ebe1a',
+        textDecoration: 'line-through'
+    }
+
+    const taskPendingStyle = {
+        fontWeight: 'bold',
+        color: 'tomato'
+    }
 
     return (
-        <tr className='fw-normal'>
+        <tr className='fw-normal' style={task.completed ? taskCompletedStyle : taskPendingStyle}>
             <th>
                 <span className='ms-2'>{task.name}</span>
             </th>

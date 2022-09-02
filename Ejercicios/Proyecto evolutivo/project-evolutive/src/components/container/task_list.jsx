@@ -23,14 +23,17 @@ const TaskListComponent = () => {
    * ? El estado inicial de tasks es un array de tasks (Las que estan arriba)
    */
   const [tasks, setTasks] = useState([defaultTask1, defaultTask2, defaultTask3]);
-  // const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   /**
    * * Controlamos el ciclo de vida del componente
    */
   useEffect(() => {
     console.log(`Task state has been modified`) //Al ser actualizado
-    // setLoading(false); //Al ser actualizado no esta cargado
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+     //Al ser actualizado no esta cargado
     return () => {
       console.log(setTasks);
       console.log`TaskList component is going to unmount`; //Al ser desmontado
@@ -85,46 +88,71 @@ const TaskListComponent = () => {
     setTasks(temporalTask);
   };
 
+
+  const Table = () => {
+    return (
+      <table>
+        <thead>
+          <tr>
+            <th scope='col'>Title</th>
+            <th scope='col'>Description</th>
+            <th scope='col'>Priority</th>
+            <th scope='col'>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tasks.map((task, index) => {
+            return (
+              <TaskComponent
+                key={index}
+                task={task}
+                complete={completeTask}
+                remove={removeTask}
+              >
+              </TaskComponent>
+            )
+          }
+          )}
+        </tbody>
+      </table>
+    );
+  };
+
+  let tasksTable = <Table></Table> //Se guarda como componente en una variable para ser renderizada correctamente.
+
+  if ( tasks.length > 0 ) {
+    tasksTable = <Table></Table>
+  } else {
+    tasksTable = (
+    <div>
+      <h3>There aren't tasks to show</h3>
+      <h4>Please, create some task.</h4>
+    </div>
+    )
+  }
+
+  const loadingStyle = {
+    color: 'gray',
+    fontSize: '20px',
+    fontWeight: 'bold'
+  } 
+
+
   return (
     <div>
       <div className='col-12'>
         <div className='card'>
           {/* CARD HEADER */}
           <div className='card-header p-3'>
-            <h5>Your tasks:</h5>
+            { tasks.length > 0 ? <h5>Your tasks:</h5> : 'No tasks' }
           </div>
           {/* CARD BODY */}
           <div className='card-body' data-mdb-perfect-scrollbar='true' style={{ position: 'relative', height: '400px' }}>
-            <table>
-              <thead>
-                <tr>
-                  <th scope='col'>Title</th>
-                  <th scope='col'>Description</th>
-                  <th scope='col'>Priority</th>
-                  <th scope='col'>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {/* Hacemos un mapeo de las tareas (Esto es renderizado condicional, ya que DEPENDE de la cantidad de tareas). Pasandole como argumento una tarea y su indice.
-                Luego en el return devolverá el componente con su KEY que permite que el DOM identifique que objeto es el que debe pintar y la task correspondiente a ese key identificador. Iteramos cada una de las tareas y luego le asignamos una key y las pintamos*/}
-                {tasks.map((task, index) => {
-                  return (
-                    <TaskComponent
-                      key={index}
-                      task={task}
-                      complete={completeTask}
-                      remove={removeTask}
-                    >
-                    </TaskComponent>
-                  )
-                }
-                )}
-              </tbody>
-            </table>
+            { loading ? (<p style={ loadingStyle }>Loading tasks...</p>) : tasksTable }
           </div>
         </div>
       </div>
-      <TaskForm add={addTask}></TaskForm>
+      <TaskForm add={addTask} length={tasks.length}></TaskForm>
     </div>
   );
 };
