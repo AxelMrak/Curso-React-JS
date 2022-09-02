@@ -14,9 +14,9 @@ function App() {
         {/* <GreetingStyled name='Martin'></GreetingStyled> */}
         {/* GESTION DE EVENTOS */}
         {/* <Father></Father> */}
-        {/* <TaskListComponent></TaskListComponent> */}
+        <TaskListComponent></TaskListComponent>
         {/* Ejemplos de renderizado condicional */}
-        <OptionalRender></OptionalRender>
+        {/* <OptionalRender></OptionalRender> */}
     </div>
   );
 }
