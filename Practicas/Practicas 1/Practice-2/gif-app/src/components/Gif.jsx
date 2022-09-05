@@ -1,23 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import ApiConsumer from '../services/apiConsumer';
+import React from 'react'
 
-
-const Gif = () => {
-
-    const [gifs, setGifs] = useState([])
-
-    useEffect(() => {
-      ApiConsumer({keyword: 'hello that'}).then(gifs => setGifs(gifs))
-    }, [])
-    
+const Gif = ({ title, url }) => {
   return (
     <div>
-      {gifs.map(gif => {
-      return  <div>
-              <h4>{gif.title}</h4>
-              <img src={gif.url} alt='gif'/>
-              </div>
-      } )}
+        <h3>{title}</h3>
+        <img src={url}></img>
     </div>
   )
 }
