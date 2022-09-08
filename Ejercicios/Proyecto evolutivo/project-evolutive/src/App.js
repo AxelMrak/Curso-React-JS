@@ -3,6 +3,7 @@ import './App.css';
 import TaskListComponent from '../src/components/container/task_list';
 import Father from './components/container/father';
 import OptionalRender from './components/pure/optionalRender';
+import LoginFormik from './components/pure/forms/loginFormik';
 // import GreetingStyled from './components/pure/greetingStyled';
 
 function App() {
@@ -17,6 +18,8 @@ function App() {
         <TaskListComponent></TaskListComponent>
         {/* Ejemplos de renderizado condicional */}
         {/* <OptionalRender></OptionalRender> */}
+        {/* Ejemplos de uso de FORMIK */}
+        <LoginFormik></LoginFormik>
     </div>
   );
 }
