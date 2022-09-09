@@ -2,31 +2,31 @@ import React from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
-function LoginFormik() {
+/**
+   * * Esto genera un esquema donde le decimos que queremos usar un objeto y que queremos definir ciertos campos con ciertos valores(para esto es el .shape)
+   * * Luego colocamos dentro de las llaves los datos, en este caso decimos que el email sera un string de tipo email, en los parentesis posteriores a email debemos colocar el mensaje de error en caso de que la validacion resulte incorrecta.
+   * * Esto es como un PropTypes pero para campos de un formulario.
+   */
+const loginSchema = Yup.object().shape(
+    {
+        email: Yup.string()
+            .email('Email format is incorrect')
+            .required('Email is required'),
+
+        password: Yup.string()
+            .required('Password is required')
+    }
+)
+
+const Loginformik = () => {
 
     const initialCredentials = {
         email: '',
         password: ''
     }
 
-    /**
-     * * Esto genera un esquema donde le decimos que queremos usar un objeto y que queremos definir ciertos campos con ciertos valores(para esto es el .shape)
-     * * Luego colocamos dentro de las llaves los datos, en este caso decimos que el email sera un string de tipo email, en los parentesis posteriores a email debemos colocar el mensaje de error en caso de que la validacion resulte incorrecta.
-     * * Esto es como un PropTypes pero para campos de un formulario.
-     */
-    const loginSchema = Yup.object().shape(
-        {
-            email: Yup.string()
-                .email('Email format is incorrect')
-                .required('Email is required'),
-
-            password: Yup.string()
-                .required('Password is required')
-        }
-    )
-
-
     return (
+
         <div>
             <h4>Login Form with Formik</h4>
             <Formik
@@ -40,24 +40,25 @@ function LoginFormik() {
                 onSubmit={async (values) => {
                     await new Promise((r) => setTimeout(r, 1000));
                     alert(JSON.stringify(values, null, 2));
-                    localStorage.setItem('credential', values)
+                    localStorage.setItem('credential', values);
                 }}
             >
 
                 {/* Obtenemos props desde Formik. ESto nos servirá para obtener las propiedades del formulario Formik y hacer uso de ellas. Por ejemplo, los valores de los campos, saber cuando el usuario interactuo o tocó, manejar los errores, cuando el formulario se esté enviando, cuando hubiese un cambio, etc. */} {/* Tenemos dos formas, la primera es mucho mas facil y limpia. La segunda esta comentada pero la dejo para que se vea la otra alternativa */}
 
-                {({ errors, touched, isSubmitting }) => (
+                {({ 
+                    values,
+                    touched,
+                    errors,
+                    isSubmitting
+                 }) => (
                     <Form>
                         <label htmlFor="email">email</label>
                         <Field id="email" name="email" placeholder="Your email" type="email" />
 
                         {
                             errors.email && touched.email && (
-                                <div className='error'>
-                                    <p>{errors.email}</p>
-                                    <ErrorMessage name='email' component='div'></ErrorMessage> // El error message es mejor que poner el p con el errors. Son dos opciones para mostrar el error. El component div seria el reemplazo del div que lo contiene actualmente
-                                </div>
-
+                                    <ErrorMessage name="email" component='div'></ErrorMessage>
                             )
                         }
 
@@ -69,8 +70,8 @@ function LoginFormik() {
                         />
 
                         {
-                            password.email && touched.password && (
-                                    <ErrorMessage name='password' component='div'></ErrorMessage>
+                            errors.password && touched.password && (
+                                <ErrorMessage name='password' component='div'></ErrorMessage>
 
                             )
                         }
@@ -78,47 +79,11 @@ function LoginFormik() {
                         <button type="submit">Login</button>
                         {isSubmitting ? (<p>Login your credentials...</p>) : null}
                     </Form>
-                )};
-
-                {/* {
-                    props => {
-                        const {
-                            values,
-                            touched,
-                            errors,
-                            isSubmitting
-                        } = props
-                        return (
-                            <Form>
-                                <label htmlFor="email">email</label>
-                                <Field id="email" name="email" placeholder="Your email" type="email" />
-                                
-                                {
-                                    errors.email && touched.email && (
-                                        <div className='error'>
-                                            <p>{errors.email}</p>
-                                        </div>
-                                    )
-                                }
-
-                                <label htmlFor="password">Password</label>
-                                <Field
-                                    id="password"
-                                    name="password"
-                                    type="password"
-                                />
-
-                                <button type="submit">Login</button>
-                                { isSubmitting ? (<p>Login your credentials...</p>) : null }
-                            </Form>
-                        )
-                    }
-                } */}
-
+                )}
 
             </Formik>
         </div>
     )
 }
 
-export default LoginFormik
+export default Loginformik
