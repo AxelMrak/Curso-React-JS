@@ -4,22 +4,23 @@ import './App.css';
 // import Father from './components/container/father';
 // import OptionalRender from './components/pure/optionalRender';
 import Loginformik from './components/pure/forms/loginFormik';
+import TaskFormik from './components/pure/forms/taskFormik';
 // import GreetingStyled from './components/pure/greetingStyled';
 
 function App() {
   return (
     <div className="App">
-        {/* Componente de listado de tareas */}
-        {/* <TaskListComponent></TaskListComponent> */}
-        {/* Estilo aplicado a usuarios logeados o no */}
-        {/* <GreetingStyled name='Martin'></GreetingStyled> */}
-        {/* GESTION DE EVENTOS */}
-        {/* <Father></Father> */}
-        {/* <TaskListComponent></TaskListComponent> */}
-        {/* Ejemplos de renderizado condicional */}
-        {/* <OptionalRender></OptionalRender> */}
-        {/* Ejemplos de uso de FORMIK */}
-        <Loginformik></Loginformik>
+      {/* Componente de listado de tareas */}
+      {/* <TaskListComponent></TaskListComponent> */}
+      {/* Estilo aplicado a usuarios logeados o no */}
+      {/* <GreetingStyled name='Martin'></GreetingStyled> */}
+      {/* GESTION DE EVENTOS */}
+      {/* <Father></Father> */}
+      {/* <TaskListComponent></TaskListComponent> */}
+      {/* Ejemplos de renderizado condicional */}
+      {/* <OptionalRender></OptionalRender> */}
+      {/* Ejemplos de uso de FORMIK */}
+      <TaskFormik></TaskFormik>
     </div>
   );
 }

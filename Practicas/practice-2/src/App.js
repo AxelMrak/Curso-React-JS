@@ -1,15 +1,12 @@
-import React from 'react';
 import './App.css';
-import Header from './components/Header';
-import TasksList from './components/TasksList';
+import Component1 from './component1';
+
 
 
 function App() {
-
-  return (  
-    <div>
-      <Header></Header> 
-      <TasksList></TasksList> 
+  return (
+    <div className="App">
+      <Component1></Component1>
     </div>
   );
 }
