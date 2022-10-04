@@ -1,10 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
+import AsyncExample from './components/pure/AsyncExample';
 // import TaskListComponent from '../src/components/container/task_list';
 // import Father from './components/container/father';
 // import OptionalRender from './components/pure/optionalRender';
 import Loginformik from './components/pure/forms/loginFormik';
 import TaskFormik from './components/pure/forms/taskFormik';
+import ObservableExample from './components/pure/ObservableExample';
 // import GreetingStyled from './components/pure/greetingStyled';
 
 function App() {
@@ -20,7 +22,10 @@ function App() {
       {/* Ejemplos de renderizado condicional */}
       {/* <OptionalRender></OptionalRender> */}
       {/* Ejemplos de uso de FORMIK */}
-      <TaskFormik></TaskFormik>
+      {/* Ejemplos de Asincronía */}
+      <AsyncExample></AsyncExample>
+      <ObservableExample></ObservableExample>
+      {/* <TaskFormik></TaskFormik> */}
     </div>
   );
 }
