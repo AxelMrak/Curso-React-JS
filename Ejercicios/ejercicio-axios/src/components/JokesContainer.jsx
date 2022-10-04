@@ -28,7 +28,7 @@ function JokesContainer() {
         <Fragment>
             <JokesPure jokes={jokes} />
             <Button variant='contained' onClick={request}>New Joke</Button>
-            <SaveJokes />
+            <SaveJokes request={request}/>
         </Fragment>
 
     )

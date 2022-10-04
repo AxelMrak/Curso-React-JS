@@ -2,16 +2,18 @@ import { Button } from '@mui/material'
 import React from 'react'
 import { useState } from 'react'
 
-function SaveJokes() {
+function SaveJokes({request}) {
 
     const [badJokes, setBadJokes] = useState(0)
     const [goodJokes, setGoodJokes] = useState(0)
 
     const iLiked = () => {
+        request()
         setGoodJokes(goodJokes + 1)
     }
 
     const iDontLike = () => {
+        request()
         setBadJokes(badJokes + 1)
     }
 
